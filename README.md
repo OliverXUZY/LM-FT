@@ -6,15 +6,15 @@
 * Finetune Bert
 ```
 python finetune_bert.py \
-  --model_name_or_path save/backbone \
-  --output_dir save/backbone \
+  --model_name_or_path test/save \
+  --output_dir test/save \
   --per_device_train_batch_size 32 \
 ```
 
 * train head on test set
 ```
 export TASK_NAME=mrpc
-export BACKBONE=save/backbone
+export BACKBONE=test/save
 python train_head.py \
   --model_name_or_path $BACKBONE \
   --task_name $TASK_NAME \
