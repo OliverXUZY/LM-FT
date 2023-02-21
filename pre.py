@@ -366,16 +366,7 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
-    # model = AutoModelForSequenceClassification.from_pretrained(
-    #     model_args.model_name_or_path,
-    #     from_tf=bool(".ckpt" in model_args.model_name_or_path),
-    #     config=config,
-    #     cache_dir=model_args.cache_dir,
-    #     revision=model_args.model_revision,
-    #     use_auth_token=True if model_args.use_auth_token else None,
-    #     ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
-    # )
-    model = src.BertForSequenceClassification.from_pretrained(
+    model = AutoModelForSequenceClassification.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
@@ -384,6 +375,15 @@ def main():
         use_auth_token=True if model_args.use_auth_token else None,
         ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
     )
+    # model = src.BertForSequenceClassification.from_pretrained(
+    #     model_args.model_name_or_path,
+    #     from_tf=bool(".ckpt" in model_args.model_name_or_path),
+    #     config=config,
+    #     cache_dir=model_args.cache_dir,
+    #     revision=model_args.model_revision,
+    #     use_auth_token=True if model_args.use_auth_token else None,
+    #     ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
+    # )
 
     # Preprocessing the raw_datasets
     if data_args.task_name is not None:
